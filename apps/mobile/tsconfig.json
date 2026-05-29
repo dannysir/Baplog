@@ -1,0 +1,27 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "jsx": "react-native",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@baplog/core": [
+        "../../packages/core/src/index.ts"
+      ],
+      "@baplog/core/*": [
+        "../../packages/core/src/*"
+      ],
+      "@baplog/types": [
+        "../../packages/types/src/index.ts"
+      ],
+      "@baplog/types/*": [
+        "../../packages/types/src/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
