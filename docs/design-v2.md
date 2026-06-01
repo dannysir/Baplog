@@ -301,7 +301,7 @@ VISIT ||--o{  PHOTO      : contains   (사진은 방문에 귀속)
 | 크로스플랫폼 프론트 | Expo (React Native) | iOS·Android·웹 한 코드베이스. React 지식 재활용 |
 | 서버 상태 | TanStack Query | 기존 경험(JuGa). RN에서 동일 사용 |
 | 지도 | react-native-maps | 플랫폼별 Google 지도 SDK 자동 선택(앱=네이티브, 웹=JS) |
-| 백엔드 | 별도 API 서버 (Hono 또는 Fastify) | Expo는 프론트 전용. 경량 프레임워크 |
+| 백엔드 | NestJS (별도 API 서버) | TypeScript 일급 지원, 모듈·DI로 도메인 경계 명확. Express 호환 |
 | DB | PostgreSQL | 관계형 무결성 |
 | ORM | Prisma | 스키마에서 TS 타입 자동 생성 |
 | DB 호스팅 | Supabase 또는 Neon (무료 티어) | |
@@ -312,7 +312,7 @@ VISIT ||--o{  PHOTO      : contains   (사진은 방문에 귀속)
 ```
 apps/
   mobile   (Expo — iOS / Android / 웹 빌드 모두)
-  api      (Hono 또는 Fastify 백엔드)
+  api      (NestJS 백엔드)
 packages/
   core     (베이지안 점수 계산, 발견 랭킹 로직 — 앱/웹/서버 공유)
   types    (Prisma 생성 타입 등 공유)
@@ -378,7 +378,7 @@ VISIT은 두 역할을 동시에 진다: (1) **플라이휠 연료**(기록 — 
 3. **VISIT 생성 강도 — 느슨/검증 2층 분리 방식과 검증 수단(근접 vs 체류)** [§8].
 4. 인증 구현 방식(백엔드 직접 OAuth vs Supabase Auth 등).
 5. 지도/장소 데이터 소스 최종 확정(구글 vs 네이버 — 표시·SDK 측면. place_id만 저장 원칙은 공통).
-6. 백엔드 프레임워크(Hono vs Fastify) 및 배포처(Expo=EAS, 웹/백엔드 별도).
+6. 배포처(Expo=EAS, 웹/백엔드 별도).
 7. 사진: 방문당 수 상한, 최대 해상도/용량, 자동 모더레이션 도입 여부.
 8. 차단(Block) 구현 방식(별도 테이블 vs FOLLOW status 확장).
 9. 초기 Google 큐레이션 기준(리뷰 수 구간, 윌슨 컷오프).
